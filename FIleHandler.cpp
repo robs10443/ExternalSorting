@@ -91,8 +91,6 @@ void insertIntoFile(vector<string> &data, string file_name){
 	current_file.close();
 }
 
-//void extractFromTheFile(vector<string> &data,string file_name,int size_to_be_extracted,int )
-
 //divide the original file into groups of memory available
 //file_name is the original file
 //available_memory is refering to the RAM available
