@@ -40,12 +40,12 @@ string generatorForRandomString(){
 	int size_of_file;
 	string file_name;
 	
-	cout << "Enter the name of the file : ";
+	cout << "Enter the name of the file to be generated : ";
 	cin >> file_name;
 	
 	file_name = addingExtensionToTheFileName(file_name);
 	
-	cout << "Enter the size of the file : ";
+	cout << "Enter the size of the file (in bytes) : ";
 	cin >> size_of_file;
 	
 	fstream current_file(file_name.c_str(),ios::out);
@@ -260,7 +260,7 @@ int main(){
 	cout << "Enter the number of memory_block you want to divde the ram into : ";
 	cin >> memory_block;
 	
-	cout << "Enter the size of each block of RAM : ";
+	cout << "Enter the size of each block of RAM (in bytes): ";
 	cin >> size_of_each_block;
 	
 	
