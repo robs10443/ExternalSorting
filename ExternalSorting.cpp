@@ -9,6 +9,8 @@
 #include <numeric>
 #include <ctime>
 
+#define int long long int
+
 using namespace std;
 
 //To generate the random integer values
@@ -123,7 +125,7 @@ vector<string> distributionOfDataIntoFile(string original_file_name,int availabl
 			data.push_back( word );
 		}else{
 			sort(data.begin(),data.end());
-			string current_file_name = "Process_0_" + to_string(total_number_of_files) + ".txt";
+			string current_file_name = ".Process_0_" + to_string(total_number_of_files) + ".txt";
 			
 			total_number_of_files++;
 			
@@ -141,7 +143,7 @@ vector<string> distributionOfDataIntoFile(string original_file_name,int availabl
 	
 	if(current_size_of_data != 0){
 		sort(data.begin(),data.end());
-		string current_file_name = "Process_0_" + to_string(total_number_of_files) + ".txt";
+		string current_file_name = ".Process_0_" + to_string(total_number_of_files) + ".txt";
 		
 		total_number_of_files++;
 		
@@ -183,7 +185,7 @@ vector<string> passesOfMerging(vector<string> files_name,int memory_block,int si
 	vector<string> current_file_names;
 	
 	for(int i = 0; i < total_file_to_be_created ; ++i){
-		string current_file_name = "Process_" + to_string(pass_number) + "_" + to_string(i) + ".txt";
+		string current_file_name = ".Process_" + to_string(pass_number) + "_" + to_string(i) + ".txt";
 		current_file_names.push_back(current_file_name);
 		fstream current_file(current_file_name,ios::out);
 		int start = i * memory_block;
@@ -193,7 +195,7 @@ vector<string> passesOfMerging(vector<string> files_name,int memory_block,int si
 		vector<fstream> previous_pass_file(memory_block);
 		
 		for(int j = start ; j < end ; ++j){
-			string previous_pass_file_name = "Process_" + to_string(pass_number - 1) + "_" + to_string(j) + ".txt";
+			string previous_pass_file_name = ".Process_" + to_string(pass_number - 1) + "_" + to_string(j) + ".txt";
 			previous_pass_file[j - start].open(previous_pass_file_name,ios::in);
 		}
 		
@@ -238,7 +240,7 @@ vector<string> passesOfMerging(vector<string> files_name,int memory_block,int si
 	return current_file_names;
 }
 
-int main(){
+signed main(){
 	cout << "Do you want to genrate a random file (y/n) : ";
 	char ch;
 	cin >> ch;
