@@ -238,9 +238,6 @@ vector<string> passesOfMerging(vector<string> files_name,int memory_block,int si
 		}
 		current_file.close();
 	}
-	/*for(auto x : files_name){
-		remove(x.c_str());
-	}*/
 	cout << "------------------------------------------------------\n";
 	cout << "Pass " << pass_number << " ended\n\n";
 	cout << "------------------------------------------------------\n";
