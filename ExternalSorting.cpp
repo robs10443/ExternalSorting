@@ -193,6 +193,7 @@ vector<string> passesOfMerging(vector<string> files_name,int memory_block,int si
 		
 		vector<string> current_vector[memory_block];
 		vector<fstream> previous_pass_file(memory_block);
+		vector<bool> file_removed(memory_block,false);
 		
 		for(int j = start ; j < end ; ++j){
 			string previous_pass_file_name = ".Process_" + to_string(pass_number - 1) + "_" + to_string(j) + ".txt";
@@ -228,12 +229,18 @@ vector<string> passesOfMerging(vector<string> files_name,int memory_block,int si
 				current_vector[indx] = dataFromTheFile(previous_pass_file[indx],size_of_each_block);
 				current_pointer[indx] = 0;
 			}
+			if(previous_pass_file[indx].eof() && file_removed[indx] == false){
+				string previous_pass_file_name = ".Process_" + to_string(pass_number - 1) + "_" + to_string(indx + start) + ".txt";
+				remove(previous_pass_file_name.c_str());
+				file_removed[indx] = true;
+			}
+			
 		}
 		current_file.close();
 	}
-	for(auto x : files_name){
+	/*for(auto x : files_name){
 		remove(x.c_str());
-	}
+	}*/
 	cout << "------------------------------------------------------\n";
 	cout << "Pass " << pass_number << " ended\n\n";
 	cout << "------------------------------------------------------\n";
